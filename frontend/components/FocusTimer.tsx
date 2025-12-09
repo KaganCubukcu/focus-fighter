@@ -8,8 +8,9 @@ interface FocusTimerProps {
 }
 
 export default function FocusTimer({ onComplete, onTick }: FocusTimerProps) {
-  const [time, setTime] = useState(10);
-  const [initialTime, setInitialTime] = useState(10);
+  const DEFAULT_TIME = 25 * 60;
+  const [time, setTime] = useState(DEFAULT_TIME);
+  const [initialTime, setInitialTime] = useState(DEFAULT_TIME);
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
@@ -27,7 +28,10 @@ export default function FocusTimer({ onComplete, onTick }: FocusTimerProps) {
       if (interval) clearInterval(interval);
       
       const durationMins = Math.max(1, Math.floor(initialTime / 60));
-      onComplete(durationMins); 
+      onComplete(durationMins);
+      
+      // Reset timer for next session
+      setTime(initialTime);
     }
 
     return () => {
@@ -41,8 +45,8 @@ export default function FocusTimer({ onComplete, onTick }: FocusTimerProps) {
 
   const resetTimer = () => {
     setIsActive(false);
-    setTime(10);
-    setInitialTime(10);
+    setTime(DEFAULT_TIME);
+    setInitialTime(DEFAULT_TIME);
   };
 
   const formatTime = (seconds: number) => {

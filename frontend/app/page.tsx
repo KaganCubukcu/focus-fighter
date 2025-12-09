@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import FocusTimer from "@/components/FocusTimer";
 import PlayerHUD from "@/components/PlayerHUD";
 import Monster from "@/components/Monster";
@@ -24,7 +24,9 @@ export default function Home() {
 
   const handleSessionComplete = async (minutes: number) => {
     try {
-      const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
+      const envUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
+      const API_BASE = envUrl.replace(/\/$/, '');
+
       const res = await fetch(`${API_BASE}/calculate-xp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
