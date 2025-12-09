@@ -79,6 +79,11 @@ export default function Home() {
         
         <FocusTimer onComplete={handleSessionComplete} onTick={handleTick} />
       </div>
+
+      <footer className="mt-12 text-center text-zinc-600 text-sm max-w-md mx-auto pb-8">
+        <p>Backend hosted on Render Free Tier.</p>
+        <p>Initial XP calculation may take up to 50s to wake up.</p>
+      </footer>
     </main>
   );
 }

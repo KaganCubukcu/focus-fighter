@@ -2,6 +2,12 @@
 
 **Focus Fighter** is a gamified productivity app that turns your Pomodoro sessions into epic battles. Defeat monsters, earn XP, and level up by staying focused!
 
+> **⚠️ Note:** The backend is hosted on Render Free Tier. The initial request (XP calculation) may take up to **50 seconds** to wake up the server. Please be patient!
+
+🔗 **Live Demo:**
+- **Frontend:** [Vercel App](https://focus-fighter.vercel.app)
+- **Backend Docs:** [Render Swagger UI](https://focus-fighter.onrender.com/docs)
+
 ## 🚀 Tech Stack
 
 - **Frontend:** Next.js 16, TypeScript, Tailwind CSS, Framer Motion
