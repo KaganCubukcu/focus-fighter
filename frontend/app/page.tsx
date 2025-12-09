@@ -24,7 +24,8 @@ export default function Home() {
 
   const handleSessionComplete = async (minutes: number) => {
     try {
-      const res = await fetch('http://localhost:8000/calculate-xp', {
+      const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
+      const res = await fetch(`${API_BASE}/calculate-xp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ minutes }),
